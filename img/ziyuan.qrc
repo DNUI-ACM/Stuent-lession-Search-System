@@ -1,0 +1,17 @@
+<RCC>
+<qresource prefix="/img">
+    <file alias="login_default">login_default.png</file>
+    <file alias="login_hover">login_hover.png</file>
+    <file alias="login_press">login_press.png</file>
+
+    <file alias="about_default">about_default.png</file>
+    <file alias="about_hover">about_hover.png</file>
+    <file alias="about_press">about_press.png</file>
+
+    <file alias="quit_default">quit_default.png</file>
+    <file alias="quit_hover">quit_hover.png</file>
+    <file alias="quit_press">quit_press.png</file>
+
+    <file alias="bg">background.jpg</file>
+</qresource>
+</RCC>

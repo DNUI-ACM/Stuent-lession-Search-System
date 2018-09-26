@@ -1,0 +1,26 @@
+//只写接口
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+#include <QMainWindow>
+#include <QPushButton>
+#include <QString>
+
+class MainWindow: public QMainWindow
+{
+	public:
+	    explicit MainWindow(QWidget* parent = 0);
+		~MainWindow();
+	public:
+		void    set_layout();
+	private:
+    QPushButton  *aut ;
+    QPushButton *qui ;
+    QPushButton *log ;
+		void    login();
+		void    quit();
+		void    author();
+};
+
+#endif //MAINWINDOW_H
+
+

@@ -1,49 +1,13 @@
-//#!/usr/bin/env bash
-//# **********************************************************
-//# Author       : Joe_Yang
-//# Last modified: 2018-09-27 00:00
-//# Email        : 1514784049@qq.com || 1514784049yz@gmail.com
-//# Weblog       : https://blog.csdn.net/pursue_my_life/
-//# Filename     : origin.cpp
-//# Description  :
-//# **********************************************************
-//#!/usr/bin/env bash
-//# **********************************************************
-//# Author       : Joe_Yang
-//# Last modified: 2018-09-26 23:58
-//# Email        : 1514784049@qq.com || 1514784049yz@gmail.com
-//# Weblog       : https://blog.csdn.net/pursue_my_life/
-//# Filename     : origin.cpp
-//# Description  :
-//# **********************************************************
-#include <QMainWindow>
+#include "origin.h"
 #include <QMessageBox>
-#include <QPushButton>
-#include <QApplication>
-#include <QPushButton>
 #include <QHBoxLayout>
 
-class origin_view: public QMainWindow
-{
-public slots:
-    void    login();
-    void    author();
-    void    quit();
-
-private:
-    QPushButton *aut ;
-    QPushButton *qui ;
-    QPushButton *log ;
-public:
-    explicit origin_view(QWidget* parent = 0);
-    ~origin_view();
-	void reflection();
-};
 
 void origin_view::login()
 {
     log->resize(60,60);
     QMessageBox::information(this, tr("Information"), tr("Open"));
+	this->setVisible(false);
 }
 
 void origin_view::author()
@@ -57,20 +21,13 @@ void origin_view::quit()
     QApplication::quit();
 }
 
-void origin_view::reflection()
-{
-	//connect(log, SIGNAL(released()),  this->login() );
-    connect(aut, SIGNAL(released()), this, SLOT(author()));
-    //connect(qui, SIGNAL(released()), this, SLOT(quit()));
-    connect(qui, &QPushButton::clicked, &QApplication::quit);
-}
 
 origin_view::origin_view(QWidget *parent):QMainWindow(parent)
 {
     setWindowTitle(tr("Management Information of Student System"));
     resize(1000, 618);
-    setObjectName("welcome");
-    setStyleSheet("#welcome{border-image:url(:/img/bg);}");
+    setObjectName("origin_view");
+    setStyleSheet("#origin_view{border-image:url(:/img/bg);}");
 
     log = new QPushButton( this);
     log->resize(50,50);//设置控件大小，一般情况下设置为图片大小
@@ -94,11 +51,16 @@ origin_view::origin_view(QWidget *parent):QMainWindow(parent)
     qui->setStyleSheet("QPushButton{border-image:url(:/img/quit_default)}""QPushButton:hover{border-image:url(:/img/quit_hover)}""QPushButton:checked{border-image:url(:/img/quit_press)}");//未选中状态
 
 
-   // QHBoxLayout *layout = new QHBoxLayout;
-   // layout->addWidget(log);
-   // layout->addWidget(aut);
-   // layout->addWidget(qui);
-   // this->setLayout(layout);
+    connect(log, SIGNAL(released()),  this, SLOT(login()) );
+    connect(aut, SIGNAL(released()), this, SLOT(author()));
+    connect(qui, SIGNAL(released()), this, SLOT(quit()));
+    connect(qui, &QPushButton::clicked, &QApplication::quit);
+
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->addWidget(log);
+    layout->addWidget(aut);
+    layout->addWidget(qui);
+    this->setLayout(layout);
 }
 
 

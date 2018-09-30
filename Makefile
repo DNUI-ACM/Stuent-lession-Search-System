@@ -51,10 +51,16 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = main.cpp \
-		main_window.cpp qrc_ziyuan.cpp
+		main_window.cpp \
+		origin.cpp qrc_ziyuan.cpp \
+		moc_main_window.cpp \
+		moc_origin.cpp
 OBJECTS       = main.o \
 		main_window.o \
-		qrc_ziyuan.o
+		origin.o \
+		qrc_ziyuan.o \
+		moc_main_window.o \
+		moc_origin.o
 DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/common/unix.conf \
 		/usr/lib64/qt5/mkspecs/common/linux.conf \
@@ -129,8 +135,10 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib64/qt5/mkspecs/features/yacc.prf \
 		/usr/lib64/qt5/mkspecs/features/lex.prf \
-		QT.pro main_window.h main.cpp \
-		main_window.cpp
+		QT.pro main_window.h \
+		origin.h main.cpp \
+		main_window.cpp \
+		origin.cpp
 QMAKE_TARGET  = b.out
 DESTDIR       = 
 TARGET        = b.out
@@ -319,8 +327,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents img/ziyuan.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib64/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents main_window.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp main_window.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents main_window.h origin.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp main_window.cpp origin.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -367,8 +375,20 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib64/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -Wall -W -dM -E -o moc_predefs.h /usr/lib64/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all:
+compiler_moc_header_make_all: moc_main_window.cpp moc_origin.cpp
 compiler_moc_header_clean:
+	-$(DEL_FILE) moc_main_window.cpp moc_origin.cpp
+moc_main_window.cpp: origin.h \
+		main_window.h \
+		moc_predefs.h \
+		/usr/lib64/qt5/bin/moc
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/joe/code/QT -I/home/joe/code/QT -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtSql -I/usr/include/qt5/QtCore -I/usr/include/c++/8 -I/usr/include/c++/8/x86_64-redhat-linux -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-redhat-linux/8/include -I/usr/local/include -I/usr/include main_window.h -o moc_main_window.cpp
+
+moc_origin.cpp: origin.h \
+		moc_predefs.h \
+		/usr/lib64/qt5/bin/moc
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/home/joe/code/QT -I/home/joe/code/QT -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtSql -I/usr/include/qt5/QtCore -I/usr/include/c++/8 -I/usr/include/c++/8/x86_64-redhat-linux -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-redhat-linux/8/include -I/usr/local/include -I/usr/include origin.h -o moc_origin.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
@@ -381,19 +401,29 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
 
-main.o: main.cpp main_window.h
+main.o: main.cpp main_window.h \
+		origin.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 main_window.o: main_window.cpp main_window.h \
-		origin.cpp
+		origin.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main_window.o main_window.cpp
+
+origin.o: origin.cpp origin.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o origin.o origin.cpp
 
 qrc_ziyuan.o: qrc_ziyuan.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_ziyuan.o qrc_ziyuan.cpp
+
+moc_main_window.o: moc_main_window.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_main_window.o moc_main_window.cpp
+
+moc_origin.o: moc_origin.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_origin.o moc_origin.cpp
 
 ####### Install
 

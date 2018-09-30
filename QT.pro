@@ -24,9 +24,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 # Input
 SOURCES  += main.cpp \
-        main_window.cpp
+        main_window.cpp \
+		origin.cpp
 
-HEADERS  += main_window.h
+HEADERS  += main_window.h \
+			origin.h
 
 #这些是你需要实现功能时添加的模块， 比如我实现窗口，就要用这个
 QT += widgets

@@ -1,15 +1,5 @@
 #include "main_window.h"  //包含的是窗口的源文件
-#include <QApplication>
-#include <QAction>
-
-#include <QMessageBox>
-#include <QMenuBar>
-#include <QStatusBar>
-#include <QToolBar>
-#include <QSpinBox>
-#include <QHBoxLayout>
-#include <QSlider>
-
+#include <QtGui>
 
 //#include <QWidget>
 //要求, main函数只能用来实例化类

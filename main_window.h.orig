@@ -7,22 +7,22 @@
 
 class MainWindow:public QMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent=0);
     ~MainWindow();
 
 private:
-    origin_view* welcome;
-    login_view*  login_kuang;
-	mysql*  stu_mysql;
+		origin_view* welcome;
+		login_view*  login_kuang;
+		Joe_mysql*  stu_mysql;
 
 public slots:
-    void to_login();
-    void to_author();
-    void to_quit();
+		void to_login();
+		void to_author();
+		void to_quit();
 
-    void to_verify();
+		bool to_verify();
 };
 
 #endif //MAINWINDOW_H

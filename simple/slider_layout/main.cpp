@@ -2,6 +2,7 @@
 #include <iostream>
 #include <QApplication>
 #include <QAction>
+#include <QDebug>
 
 #include <QMessageBox>
 #include <QSpinBox>
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
     layout->addWidget(spinBox);
     layout->addWidget(slider);
     window.setLayout(layout);
-
+	qDebug()<< "asdfsadfasd" << endl;
     window.show();
 
     return app.exec();

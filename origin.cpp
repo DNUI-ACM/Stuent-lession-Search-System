@@ -1,33 +1,17 @@
 #include "origin.h"
+#include "main_window.h"
 #include <QMessageBox>
 #include <QHBoxLayout>
-
-
-void origin_view::login()
-{
-    log->resize(60,60);
-    QMessageBox::information(this, tr("Information"), tr("Open"));
-	this->setVisible(false);
-}
-
-void origin_view::author()
-{
-    QMessageBox::information(this, tr("Power by Joe_yang"), tr("Welcome to clicked www.joeyang.cn"));
-}
-
-void origin_view::quit()
-{
-    QMessageBox::information(this, tr("Bye"), tr("Welcome using again"));
-    QApplication::quit();
-}
 
 
 origin_view::origin_view(QWidget *parent):QMainWindow(parent)
 {
     setWindowTitle(tr("Management Information of Student System"));
     resize(1000, 618);
+	move(480, 240);
     setObjectName("origin_view");
     setStyleSheet("#origin_view{border-image:url(:/img/bg);}");
+	setMinimumSize(1000, 618);  //最小尺寸
 
     log = new QPushButton( this);
     log->resize(50,50);//设置控件大小，一般情况下设置为图片大小
@@ -51,16 +35,16 @@ origin_view::origin_view(QWidget *parent):QMainWindow(parent)
     qui->setStyleSheet("QPushButton{border-image:url(:/img/quit_default)}""QPushButton:hover{border-image:url(:/img/quit_hover)}""QPushButton:checked{border-image:url(:/img/quit_press)}");//未选中状态
 
 
-    connect(log, SIGNAL(released()),  this, SLOT(login()) );
-    connect(aut, SIGNAL(released()), this, SLOT(author()));
-    connect(qui, SIGNAL(released()), this, SLOT(quit()));
-    connect(qui, &QPushButton::clicked, &QApplication::quit);
+  //  connect(qui, &QPushButton::clicked, &QApplication::quit);
 
-    QHBoxLayout *layout = new QHBoxLayout;
-    layout->addWidget(log);
-    layout->addWidget(aut);
-    layout->addWidget(qui);
-    this->setLayout(layout);
+  //  QHBoxLayout *layout = new QHBoxLayout;
+  //  layout->addWidget(log);
+  //  layout->addWidget(aut);
+  //  layout->addWidget(qui);
+  //  layout->setStretchFactor(log, 2000);
+  //  layout->setStretchFactor(aut, 2000);
+  //  layout->setStretchFactor(qui, 2000);
+  //  this->setLayout(layout);
 }
 
 

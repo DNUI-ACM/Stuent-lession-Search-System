@@ -1,7 +1,0 @@
-<RCC>
-<qresource prefix="/img">
-    <file alias="start">start.png</file>
-    <file alias="about">start.png</file>
-    <file alias="quit">start.png</file>
-</qresource>
-</RCC>

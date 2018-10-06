@@ -1,0 +1,13 @@
+#ifndef __LOGIN_VIEW__
+#define __LOGIN_VIEW__
+
+class login_view
+{
+	Q_OBJECT
+	public:
+	explicit login_view();
+	~login_view();
+}
+
+#endif //__LOGIN_VIEW__
+

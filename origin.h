@@ -9,12 +9,7 @@
 class origin_view: public QMainWindow
 {
 	Q_OBJECT
-private slots:
-    void    login();
-    void    author();
-    void    quit();
-
-private:
+public:
     QPushButton *aut ;
     QPushButton *qui ;
     QPushButton *log ;

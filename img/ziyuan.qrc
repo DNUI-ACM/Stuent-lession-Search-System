@@ -13,5 +13,16 @@
     <file alias="quit_press">quit_press.png</file>
 
     <file alias="bg">background.jpg</file>
+    <file alias="bg2">background2.jpg</file>
+
+
+    <file alias="admin_default">admin_login_default.png</file>
+    <file alias="admin_hover">admin_login_hover.png</file>
+
+    <file alias="prev_default">prev_default.png</file>
+    <file alias="prev_hover">prev_hover.png</file>
+
+    <file alias="forgot_default">forgot_password_default.png</file>
+    <file alias="forgot_hover">forgot_password_hover.png</file>
 </qresource>
 </RCC>

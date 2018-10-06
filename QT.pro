@@ -23,17 +23,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Input
-SOURCES  += main.cpp \
+SOURCES  += main.cpp    \
         main_window.cpp \
-		origin.cpp
+		origin.cpp	    \
+		login_view.cpp  \
+		mysql.cpp      \
+		input.cpp
 
 HEADERS  += main_window.h \
-			origin.h
+			origin.h	  \
+			login_view.h  \
+			mysql.h       \
+			input.h
 
 #这些是你需要实现功能时添加的模块， 比如我实现窗口，就要用这个
 QT += widgets
-QT += core gui sql
+QT += sql
 RESOURCES += img/ziyuan.qrc
-
 
 

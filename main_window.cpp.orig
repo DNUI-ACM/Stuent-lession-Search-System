@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
 
     connect(login_kuang->loging, SIGNAL(released()), this, SLOT(to_verify()));
 
-    //connect(login_kuang->admin, SIGNAL(returnPressed()), this, SLOT(to_verify() ));
+    connect(login_kuang->admin, SIGNAL(returnPressed()), this, SLOT(to_verify() ));
 }
 
 void MainWindow::to_verify()
@@ -35,21 +35,20 @@ void MainWindow::to_verify()
     md5.append(bb.toHex());
 //现在 md5 是用户输入的密码经过md5转换后的 密码
 
-   //qWarning()<< "zhanghao " << log.toLatin1() << endl;
-   //qWarning()<< "mima " << pwd.toLatin1() << endl;
-   //qWarning()<< "mima after" << md5.toLatin1() << endl;
-    if(stu_mysql->verify_user(log, md5) == 1)
-    {
-        QMessageBox::information(welcome,tr("congruations!"), tr("Verify successfully!"));
-    }
-    else if(stu_mysql->verify_user(log, md5) == 0)
-    {
-        QMessageBox::information(welcome,tr("Warrning"), tr("accout number is wrong!"));
-    }
-    else if(stu_mysql->verify_user(log, md5) == -1)
-    {
-        QMessageBox::information(welcome,tr("Warrning"), tr("password is wrong!"));
-    }
+	qDebug()<< log.toLatin1() << endl;
+	qDebug()<< md5.toLatin1() << endl;
+	if(stu_mysql->verify_user(log, pwd) == 1)
+	{
+		QMessageBox::information(welcome,tr("congruations!"), tr("Verify successfully!"));
+	}
+	else if(stu_mysql->verify_user(log, pwd) == 0)
+	{
+		QMessageBox::information(welcome,tr("Warrning"), tr("accout number is wrong!"));
+	}
+	else//return -1
+	{
+		QMessageBox::information(welcome,tr("Warrning"), tr("password is wrong!"));
+	}
 
     //if(log == && pwd == )
 }
@@ -58,7 +57,7 @@ void MainWindow::to_login()
 {
     welcome->log->resize(60,60);
     QMessageBox::information(welcome, tr("Information"), tr("Open"));
-    welcome->setVisible(false);
+	welcome->setVisible(false);
     login_kuang->show();
 }
 

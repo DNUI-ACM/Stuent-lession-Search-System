@@ -1,0 +1,41 @@
+## The Student Information Mangement System
+
+## The fault of my coding
+1. if use "Q_OBJECT" must be create two that file .h and .cpp, otherwise, It will be lead to a lots of bug.
+
+## Note
+1. insert background to mainwindow
+```c++
+    log->setStyleSheet
+	(
+	"QPushButton{border-image:url(:/img/login_default)}"
+	"QPushButton:hover{border-image:url(:/img/login_hover)}"
+	"QPushButton:checked{border-image:url(:/img/login_press)}"
+	);//未选中状态
+```
+2. how to using signal and slot
+```c++
+connect(log, SIGNAL(released()),  this, SLOT(login()) );
+```
+3. ABBET
+> using mainwindows object to mange object
+```c++
+ class MainWindows;
+ | class origin;
+   | login()
+	 | class login_view;
+	 | class choose_option;
+	   | class lession_output;
+       | class score_output;
+   | about_author()
+   | quit()
+
+```
+
+4. how to connect some difference view???
+> just remerber all the connect should diaoyong in main_win.cpp
+```c++
+
+```
+
+

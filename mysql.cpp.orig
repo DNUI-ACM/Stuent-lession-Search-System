@@ -75,17 +75,17 @@ int mysql::verify_user(QString log, QString pass)
         return 0;
     }
 
-    QString name = query->value(0).toString();
-    if( name == pass )
-        return 1;
-    query->next();
-
-    while(query->next())
-    {
         QString name = query->value(0).toString();
         if( name == pass )
-            return 1;
-    }
+			return 1;
+        query->next();
+
+        while(query->next())
+        {
+            QString name = query->value(0).toString();
+            if( name == pass )
+                return 1;
+        }   
     return -1;
 
 //第一次调用next()函数就可以把这个QSqlQuery定位到结果集中的第一条记录。随后的next调用都会把记录指针后移一条记录，直至到达结尾时next才返回false。如果结果集为空（或查询失败），那么next第一次调用将返回false。value()函数把字段值做为QVariant返回，字段是按照SELECT语句中给定的顺序从编号0开始的（千万不要弄错顺序）。

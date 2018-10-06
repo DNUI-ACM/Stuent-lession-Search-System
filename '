@@ -1,0 +1,101 @@
+#include "mysql.h"
+
+void mysql::initsql()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    //db.setHostName("127.0.0.1");
+    db.setHostName("localhost");
+    db.setUserName("yang_zhao");
+    db.setPassword("123");
+    db.setDatabaseName("student_lesson");
+    if(db.open())
+    {
+        qWarning()<< "database connected successfully!!!";
+        create_table();
+        return;
+    }
+    else
+    {
+        qWarning()<<"Database connected failed!";
+        return;
+    }
+}
+
+void mysql::create_table()
+{
+    //query = new QSqlQuery;
+    //// 如果 MySQL 数据库中已经存在同名的表， 那么下面的代码不会执行
+// 使数据库支持中文
+    //query->exec("SET NAMES 'Latin1'");
+// 创建 course 表
+    //query->exec("create table course (id int primary key, " "name varchar(20), teacher varchar(20))");
+    //query->exec("insert into course values(0, '数学', '刘老师')");
+    //query->exec("insert into course values(1, '英语', '张老师')");
+    //query->exec("insert into course values(2, '计算机', '李老师')");
+}
+
+bool mysql::insert_stu()
+{
+    //query new QSqlQuery;
+    return true;
+}
+
+int mysql::verify_user(QString log, QString pass)
+{
+    query=new QSqlQuery;
+    QString str=QString("select password_of_student from accout where index_of_student= '%1' ").arg(log);
+	query->exec(str);
+    //qWarning()<< "str " << str.toLatin1() << endl;
+    //qWarning()<< "pass " << pass.toLatin1() << endl;
+
+    int record = 0;
+    while(query->next())
+    {
+        QString name=query->value(0).toString();
+        int     pass=query->value(1).toInt();
+       // qWarning()<< title.toLatin1() << year;//打印查询结果
+
+        if( record == 0 && false == query->next() )//说明 查询到的结果为0
+            return 0;
+
+        if( pass == pass )
+            return 1;
+
+        //     int year=query->value(1).toInt();
+    }
+
+    return -1;
+
+//第一次调用next()函数就可以把这个QSqlQuery定位到结果集中的第一条记录。随后的next调用都会把记录指针后移一条记录，直至到达结尾时next才返回false。如果结果集为空（或查询失败），那么next第一次调用将返回false。value()函数把字段值做为QVariant返回，字段是按照SELECT语句中给定的顺序从编号0开始的（千万不要弄错顺序）。
+}
+
+bool mysql::forgot_password()//建表 索引 触发器
+{
+    return true;
+
+}
+
+bool mysql::delete_stu()
+{
+
+    return true;
+}
+
+bool mysql::update_stu()
+{
+
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

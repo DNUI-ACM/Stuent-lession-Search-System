@@ -17,6 +17,14 @@ do:
 ```bash
 $ sudo dnf install qt5-qtbase-mysql
 ```  
+  
+3. can't insert chinese charter 
+do:
+```
+	1. update the charter set of your datebase;
+	2. update the charter set of your tables
+	1. update the charter set of you  mysql(maridb);
+```
 <br>
 ## Note
 1. insert background to mainwindow
@@ -54,21 +62,25 @@ connect(log, SIGNAL(released()),  this, SLOT(login()) );
 ```
 
 ## The design of database
-school(学校代码, 学校名称)
-department(系号, 系名称,学校代码)
-major(专业号, 专业名, 系号)
-class(班级号10, 班级名, 专业号)
-information_of_student(学生编号, 学生姓名, 班级号12, 性别,)
-teacher()教师号，教师名)
-classroom(教室号，教室名）
-息表(课程号，课程名)
-level(年级号，年级名)
+accout(index_of_student12, password_of_student50)<br>
+school(学校代码10, 学校名称10)<br>
+teacher(教师号10， 教师名10)<br>
+information_of_student(学生号12, 学生姓名10, 班级号6, 性别1,)<br>
+department(系号2, 系名称10, 学校代码10)<br>
+major(专业号10, 专业名10, 系号)<br>
 
-apply_lession（课程号，班号，教师号，上课时间）
+class(班级号4, 班级名, 专业号)<br>
+classroom(教室号，教室名）<br>
+lession(课程号，课程名)<br>
+level(年级号，年级名)<br>
 
-accout(idnex_of_student, password_of_student)
+apply_lession（课程号10，班号10，教师号10）<br>//这里上课时间只需要记 第几节
+
+day(星期几int,    课程号, 上课时间10); //select from day where day=1;//查星期1的课
+time( 上课时间10, 课程号, 星期几); //select form time where time=12;//查12节, 12 34 56 78 910
+
 eg:
-insert into accout(index_of_student, password_of_student) values('17180600305', md5('明文密码'));
+insert into accout(index_of_student, password_of_student) values('17180600305', md5('明文密码'));<br>
 比对用 md5 后与数据库中对比
 成绩表(学生号, 专业名, 成绩)
 

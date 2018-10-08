@@ -4,6 +4,7 @@
 #include "origin.h"
 #include "mysql.h"
 #include "login_view.h"
+#include "input.h"
 
 class MainWindow:public QMainWindow
 {
@@ -16,6 +17,7 @@ private:
     origin_view* welcome;
     login_view*  login_kuang;
 	mysql*  stu_mysql;
+	input*  inpu;
 
 public slots:
     void to_login();
@@ -23,6 +25,8 @@ public slots:
     void to_quit();
 
     void to_verify();
+
+	void to_input_lesson();
 };
 
 #endif //MAINWINDOW_H

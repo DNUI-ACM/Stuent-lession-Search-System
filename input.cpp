@@ -1,3 +1,31 @@
 #include "input.h"
 
+input::input(QMainWindow* parent):QMainWindow(parent)
+{
+	setWindowTitle(tr("Management Information of Student System"));
+    resize(1000, 618);
+	move(480, 240);
+    setObjectName("input");
+    setStyleSheet("#input{border-image:url(:/img/bg);}");
+	setMinimumSize(1000, 618);  //最小尺寸
+
+    prev = new QPushButton( this);
+    prev ->resize(50,50);//设置控件大小，一般情况下设置为图片大小
+    prev ->move(50,30);//设置按钮的位置，左上角为原点
+    prev ->setCheckable(true);//设置按钮可以被点击（选中）,少了这句按钮不能点，点了也没反应
+    //loging->setIconSize(QSize(50, 50));
+
+	prev->setStyleSheet("QPushButton{border-image:url(:/img/prev_default)}""QPushButton:hover{border-image:url(:/img/prev_hover)}""QPushButton:checked{border-image:url(:/img/prev_default)}");//未选中状态
+
+}
+
+void input::input_lesson()
+{
+
+};
+
+void input::input_score()
+{
+
+}
 

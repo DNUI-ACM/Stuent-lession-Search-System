@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     welcome     =  new origin_view();
     login_kuang =  new login_view();
     stu_mysql   =  new mysql();
+	inpu        =  new input();
 
     stu_mysql->initsql();
     welcome->show();
@@ -18,7 +19,14 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
 
     connect(login_kuang->loging, SIGNAL(released()), this, SLOT(to_verify()));
 
-    //connect(login_kuang->admin, SIGNAL(returnPressed()), this, SLOT(to_verify() ));
+    connect(login_kuang->admin, SIGNAL(returnPressed()), this, SLOT(to_verify() ));
+
+    connect(inpu->prev, SIGNAL(released()), this, SLOT(to_input_lesson() ));
+}
+
+void MainWindow::to_input_lesson()
+{
+	inpu->input_lesson();
 }
 
 void MainWindow::to_verify()
@@ -41,6 +49,8 @@ void MainWindow::to_verify()
     if(stu_mysql->verify_user(log, md5) == 1)
     {
         QMessageBox::information(welcome,tr("congruations!"), tr("Verify successfully!"));
+		login_kuang->setVisible(false);
+		inpu->show();
     }
     else if(stu_mysql->verify_user(log, md5) == 0)
     {
@@ -78,6 +88,7 @@ MainWindow::~MainWindow()
 {
     delete welcome;
     delete login_kuang;
+    delete inpu;
 }
 
 

@@ -25,6 +25,8 @@ class mysql
 	private:
 		QSqlQuery *query;
 
+	public:
+		QSqlQuery*& cha();
 //	public slots:
 //		bool to_verify();
 };

@@ -1,6 +1,10 @@
 #include "mysql.h"
 #include <QCoreApplication>
 #include <QTextCodec>
+QSqlQuery*& mysql::cha()
+{
+	return query;
+}
 
 QSqlError mysql::initsql()
 {
@@ -114,15 +118,37 @@ bool mysql::insert_stu()
     //query->exec("insert into major(index_of_major, name_of_major, index_of_department) values('14', '微电子科学与工程', '2' )" );
 	
 	//apply_lession
-	query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, index_of_lession) values('0', '数据库原理与技术', '3' )" );
-	query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, index_of_lession) values('1', '大学英语3 ', '1' )" );
-	query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, index_of_lession) values('2', 'Java面向对象程序设计', '0' )" );
-	query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, index_of_lession) values('3', '概率论与数理统计', '7' )" );
-	query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, index_of_lession) values('4', '体育三 足球', '6' )" );
-	query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, index_of_lession) values('5', '大数据技术及应用', '5' )" );
-	query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, index_of_lession) values('6', 'c++程序设计1', '4' )" );
-	query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, index_of_lession) values('7', '中国近代史', '7' )" );
-	query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, index_of_lession) values('8', '物理实验', '8' )" );
+	//切勿重复插入
+	//sjk
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('0', '17003','3', '1078', 'A7-106')" );
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('0', '17003','3', '3078', 'A7-106')");
+	//
+//en////glish
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('1', '17003','1', '2012', 'A6-402')" );
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('1', '17003','1', '5034', 'A6-402')" );
+
+//ja//va	
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('2', '17003','0', '2034', 'A7-101')" );
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('2', '17003','0', '5012', 'A7-101')" );
+
+	////gll
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('3', '17003','7', '4012', 'A7-106')" );
+	////ty
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('4', '17003','6', '4034', '三期体育场')" );
+
+	////dsj
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('5', '17003','5', '2078', 'A3-309')" );
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('5', '17003','5', '5078', 'A3-309' )" );
+
+//c+//+
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('6', '17003','4', '3056', 'A3-317')" );
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('6', '17003','4', '5056', 'A3-317')" );
+
+	////zgjds
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('7', '17003','7', '3056', 'A3-317')" );
+
+	////wlsu
+	//query->exec("insert into apply_lession(index_of_lession, index_of_class, index_of_teacher, time_of_lession, index_of_classroom) values('8', '17003','8', '4078', 'A12-208')" );
 	
     qWarning() << query->lastError() <<endl;
     return true;
@@ -214,8 +240,9 @@ bool mysql::update_stu()
 //	query->exec( "alter table major change index_of_department index_of_department varchar(2) not null");
 
 	//apply_lession
-	query->exec( "alter table  apply_lession change idnex_of_lession index_of_lession varchar(4) not null");
-    qWarning() << query->lastError() << endl;
+	//query->exec( "alter table  apply_lession change idnex_of_lession index_of_lession varchar(4) not null");
+	//query->exec( "alter table  apply_lession add index_of_classroom varchar(10) not null after time_of_lession");
+	qWarning() << query->lastError() << endl;
     return true;
 }
 

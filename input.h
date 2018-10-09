@@ -4,6 +4,10 @@
 #include <QLineEdit>
 #include <QMainWindow>
 #include <QPushButton>
+#include <QTableWidget>
+#include <QTableWidgetItem>
+#include <QStringListModel>
+#include <QStringList>
 
 class input:public QMainWindow//QWidget
 {
@@ -16,6 +20,8 @@ public slots:
     void input_score();
 public:
 	QPushButton* prev;
+	QTableWidget* lession;
+	QTableWidget* infor;
 };
 
 #endif //__input__

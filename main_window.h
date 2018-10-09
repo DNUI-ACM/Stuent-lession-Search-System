@@ -26,7 +26,7 @@ public slots:
 
     void to_verify();
 
-	void to_input_lesson();
+	void to_input_lesson(QString log);
 };
 
 #endif //MAINWINDOW_H

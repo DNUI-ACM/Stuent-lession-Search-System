@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[7];
-    char stringdata0[65];
+    QByteArrayData data[8];
+    char stringdata0[69];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,11 +37,12 @@ QT_MOC_LITERAL(2, 20, 0), // ""
 QT_MOC_LITERAL(3, 21, 9), // "to_author"
 QT_MOC_LITERAL(4, 31, 7), // "to_quit"
 QT_MOC_LITERAL(5, 39, 9), // "to_verify"
-QT_MOC_LITERAL(6, 49, 15) // "to_input_lesson"
+QT_MOC_LITERAL(6, 49, 15), // "to_input_lesson"
+QT_MOC_LITERAL(7, 65, 3) // "log"
 
     },
     "MainWindow\0to_login\0\0to_author\0to_quit\0"
-    "to_verify\0to_input_lesson"
+    "to_verify\0to_input_lesson\0log"
 };
 #undef QT_MOC_LITERAL
 
@@ -63,14 +64,14 @@ static const uint qt_meta_data_MainWindow[] = {
        3,    0,   40,    2, 0x0a /* Public */,
        4,    0,   41,    2, 0x0a /* Public */,
        5,    0,   42,    2, 0x0a /* Public */,
-       6,    0,   43,    2, 0x0a /* Public */,
+       6,    1,   43,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    7,
 
        0        // eod
 };
@@ -85,11 +86,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->to_author(); break;
         case 2: _t->to_quit(); break;
         case 3: _t->to_verify(); break;
-        case 4: _t->to_input_lesson(); break;
+        case 4: _t->to_input_lesson((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject MainWindow::staticMetaObject = {

@@ -74,15 +74,32 @@ classroom(教室号，教室名）<br>
 lession(课程号，课程名)<br>
 level(年级号，年级名)<br>
 
-apply_lession（课程号10，班号10，教师号10）<br>//这里上课时间只需要记 第几节
+apply_lession（课程号10，班号10，教师号10）<br>//这里上课时间只需要记 第几节  针对必修
 
-day(星期几int,    课程号, 上课时间10); //select from day where day=1;//查星期1的课
+day(星期几int,    课程, 上课时间10); //select from day where day=1;//查星期1的课
 time( 上课时间10, 课程号, 星期几); //select form time where time=12;//查12节, 12 34 56 78 910
 
 eg:
 insert into accout(index_of_student, password_of_student) values('17180600305', md5('明文密码'));<br>
 比对用 md5 后与数据库中对比
 成绩表(学生号, 专业名, 成绩)
+
+假设：每个人的课表都不一样,如何保证 能应对每个人的查课需求呢
+
+一个时间段可以有多门 课，
+一门课 对应很多个班的学生,
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

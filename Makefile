@@ -100,21 +100,50 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_input_support_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_kms_support_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_location.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_location_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_network.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_network_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_opengl.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_opengl_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_openglextensions.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_packetprotocol_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_positioning.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_positioning_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_positioningquick.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_positioningquick_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qml_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qmldebug_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qmldevtools_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qmltest_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_quick.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_quick_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_quickparticles_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_quickwidgets_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_service_support_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_theme_support_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webchannel.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webchannel_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webengine.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webengine_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginecore.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginecore_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginecoreheaders_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginewidgets.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginewidgets_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_websockets.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_websockets_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -195,21 +224,50 @@ Makefile: QT.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/mksp
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_input_support_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_kms_support_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_location.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_location_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_network.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_network_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_opengl.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_opengl_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_openglextensions.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_packetprotocol_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_positioning.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_positioning_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_positioningquick.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_positioningquick_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qml_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qmldebug_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qmldevtools_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_qmltest_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_quick.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_quick_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_quickparticles_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_quickwidgets_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_service_support_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_theme_support_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webchannel.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webchannel_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webengine.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webengine_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginecore.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginecore_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginecoreheaders_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginewidgets.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginewidgets_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_websockets.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_websockets_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -276,21 +334,50 @@ Makefile: QT.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt5/mksp
 /usr/lib64/qt5/mkspecs/modules/qt_lib_input_support_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_kms_support_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_location.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_location_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_network.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_network_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_opengl.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_opengl_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_openglextensions.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_packetprotocol_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_positioning.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_positioning_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_positioningquick.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_positioningquick_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_printsupport.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_printsupport_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_qml.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_qml_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_qmldebug_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_qmldevtools_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_qmltest.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_qmltest_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_quick.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_quick_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_quickparticles_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_quickwidgets.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_quickwidgets_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_service_support_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_sql.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_sql_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_testlib.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_testlib_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_theme_support_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_webchannel.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_webchannel_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_webengine.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_webengine_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginecore.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginecore_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginecoreheaders_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginewidgets.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_webenginewidgets_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_websockets.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_websockets_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_widgets.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_widgets_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
@@ -402,6 +489,7 @@ compiler_moc_header_clean:
 moc_main_window.cpp: origin.h \
 		mysql.h \
 		login_view.h \
+		input.h \
 		main_window.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
@@ -436,19 +524,22 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 main.o: main.cpp main_window.h \
 		origin.h \
 		mysql.h \
-		login_view.h
+		login_view.h \
+		input.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 main_window.o: main_window.cpp main_window.h \
 		origin.h \
 		mysql.h \
-		login_view.h
+		login_view.h \
+		input.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main_window.o main_window.cpp
 
 origin.o: origin.cpp origin.h \
 		main_window.h \
 		mysql.h \
-		login_view.h
+		login_view.h \
+		input.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o origin.o origin.cpp
 
 login_view.o: login_view.cpp login_view.h

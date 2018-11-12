@@ -19,6 +19,9 @@ private:
 	mysql*  stu_mysql;
 	input*  inpu;
 
+private:
+	QString&  search(QString& str, QString log, QString time);
+
 public slots:
     void to_login();
     void to_author();

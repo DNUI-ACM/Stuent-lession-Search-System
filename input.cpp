@@ -49,7 +49,7 @@ input::input(QMainWindow* parent):QMainWindow(parent)
 
 
     QStringList date;
-	date << "学号" << "姓名" << "班级" << "性别";
+	date << "学号" << "姓名" << "专业" << "性别";
 	infor = new QTableWidget(1, 4, this);
     infor->setHorizontalHeaderLabels(date);
 	infor->resize(440, 65);

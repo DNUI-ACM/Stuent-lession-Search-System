@@ -48,18 +48,43 @@ QString&  MainWindow::search(QString& str, QString log, QString time)
 //    tmp += ' ' + stu_mysql->cha()->value(0).toString();
 //	qWarning() << tmp << endl;
 
-	str = QString("select lesson.lesson_name, site.classroom, teacher.teacher_name from  lesson inner join choose_lesson on choose_lesson.lesson_id = lesson.lesson_id and choose_lesson.stu_ID = '%1' inner join site  on site.lesson_id = choose_lesson.lesson_id and site.time_of_lesson = '%2' inner join apply_lesson on apply_lesson.lesson_ID = lesson.lesson_id inner join teacher on teacher.teacher_ID = apply_lesson.teacher_ID").arg(log, time);
+    str = QString("select lesson.lesson_name, site.classroom, teacher.teacher_name from  lesson inner join choose_lesson on choose_lesson.lesson_id = lesson.lesson_id and choose_lesson.stu_ID = '%1' inner join site  on site.lesson_id = choose_lesson.lesson_id and site.time_of_lesson = '%2' inner join apply_lesson on apply_lesson.lesson_ID = lesson.lesson_id inner join teacher on teacher.teacher_ID = apply_lesson.teacher_ID").arg(log, time);
 
     stu_mysql->cha()->exec(str);
     stu_mysql->cha()->next();
 
-	QString tmp;
-	for(int i = 0; i < 3; ++i)
-		tmp += stu_mysql->cha()->value(i).toString() + '\n';
+    QString tmp;
+    for(int i = 0; i < 3; ++i)
+        tmp += stu_mysql->cha()->value(i).toString() + '\n';
 
-	qWarning() << tmp << endl;
-	return str = tmp;
+    qWarning() << tmp << endl;
+    return str = tmp;
 }
+
+
+create view stu_sheet
+as
+select student.stu_name, lesson.lesson_name, teacher.teacher_name, site.classroom, site.time_of_lesson
+from
+student, lesson, choose_lesson, apply_lesson, teacher, site
+where
+(
+	choose_lesson.lesson_id = lesson.lesson_id 
+	and site.lesson_id = choose_lesson.lesson_id 
+	and choose_lesson.stu_ID = '17180600305' 
+	and student.stu_ID  =  '17180600305'
+	and apply_lesson.lesson_ID = lesson.lesson_id 
+	and teacher.teacher_ID = apply_lesson.teacher_ID
+)
+
+and choose_lesson.stu_ID = '%1' 
+//and site.time_of_lesson = '%2' 
+apply_lesson.lesson_ID = lesson.lesson_id 
+on teacher.teacher_ID = apply_lesson.teacher_ID
+
+
+
+
 
 
 
@@ -89,24 +114,24 @@ void MainWindow::to_input_lesson(QString log)
     inpu->infor->setItem(0, 3, new QTableWidgetItem(sex));
 
     //inpu->input_lesson();
-	inpu->lession->setItem(0, 0, new QTableWidgetItem(search( str, log, "1012" )));
+    inpu->lession->setItem(0, 0, new QTableWidgetItem(search( str, log, "1012" )));
     inpu->lession->setItem(0, 1, new QTableWidgetItem(search( str, log, "2012" )));
     inpu->lession->setItem(0, 2, new QTableWidgetItem(search( str, log, "3012" )));
     inpu->lession->setItem(0, 3, new QTableWidgetItem(search( str, log, "4012" )));
     inpu->lession->setItem(0, 4, new QTableWidgetItem(search( str, log, "5012" )));
-                                                                               
+
     inpu->lession->setItem(1, 0, new QTableWidgetItem(search( str, log, "1034" )));
     inpu->lession->setItem(1, 1, new QTableWidgetItem(search( str, log, "2034" )));
     inpu->lession->setItem(1, 2, new QTableWidgetItem(search( str, log, "3034" )));
     inpu->lession->setItem(1, 3, new QTableWidgetItem(search( str, log, "4034" )));
     inpu->lession->setItem(1, 4, new QTableWidgetItem(search( str, log, "5034" )));
-                                                                               
+
     inpu->lession->setItem(2, 0, new QTableWidgetItem(search( str, log, "1056" )));
     inpu->lession->setItem(2, 1, new QTableWidgetItem(search( str, log, "2056" )));
     inpu->lession->setItem(2, 2, new QTableWidgetItem(search( str, log, "3056" )));
     inpu->lession->setItem(2, 3, new QTableWidgetItem(search( str, log, "4056" )));
     inpu->lession->setItem(2, 4, new QTableWidgetItem(search( str, log, "5056" )));
-                                                                               
+
     inpu->lession->setItem(3, 0, new QTableWidgetItem(search( str, log, "1078" )));
     inpu->lession->setItem(3, 1, new QTableWidgetItem(search( str, log, "2078" )));
     inpu->lession->setItem(3, 2, new QTableWidgetItem(search( str, log, "3078" )));
@@ -129,7 +154,7 @@ void MainWindow::to_verify()
     md.addData(ba);
     bb = md.result();
     md5.append(bb.toHex());
-//现在 md5 是用户输入的密码经过md5转换后的 密码
+    //现在 md5 是用户输入的密码经过md5转换后的 密码
 
     if(stu_mysql->verify_user(log, md5) == 1)
     {
@@ -147,7 +172,6 @@ void MainWindow::to_verify()
         QMessageBox::information(welcome,tr("Warrning"), tr("password is wrong!"));
     }
 
-    //if(log == && pwd == )
 }
 
 void MainWindow::to_login()

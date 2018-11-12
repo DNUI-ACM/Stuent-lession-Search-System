@@ -63,6 +63,7 @@ connect(log, SIGNAL(released()),  this, SLOT(login()) );
 
 ## The design of database
 
+<<<<<<< HEAD
 accout(student_ID(PRI), password_of_student50)<br>
 school(school_ID(PRI), stu_name)<br>
 teacher(teacher_ID(PRI)， teacher_name)<br>
@@ -72,6 +73,23 @@ major(major_ID(PRI), major_name, department_ID)<br>
 lession(lession_ID，lession_name)<br>
 apply_lession（lession_ID，class_ID，teacher_ID, lession_ID, class_ID）<br>
 //这里上课时间只需要记 第几节  针对必修
+=======
+accout(index_of_student12, password_of_student50)<br>
+school(学校代码10, 学校名称10)<br>
+teacher(教师号10， 教师名10)<br>
+information_of_student(学生号12, 学生姓名10, 班级号6, 性别1,)<br>
+department(系号2, 系名称10, 学校代码10)<br>
+major(专业号10, 专业名10, 系号)<br>
+class(班级号4, 班级名, 专业号)<br>
+classroom(教室号，教室名）<br>
+lession(课程号，课程名)<br>
+apply_lession（课程号10，班号10，教师号10）<br>//这里上课时间只需要记 第几节  针对必修
+
+
+
+day(星期几int,    课程, 上课时间10); //select from day where day=1;//查星期1的课
+time( 上课时间10, 课程号, 星期几); //select form time where time=12;//查12节, 12 34 56 78 910
+>>>>>>> 2f4c084b8835b802b1b0bf30eb5dc0b8f8d55fac
 
 eg:
 insert into accout(index_of_student, password_of_student) values('17180600305', md5('明文密码'));<br>
